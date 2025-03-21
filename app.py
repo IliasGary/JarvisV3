@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv, set_key
 from PIL import Image
-from s2s import JarvisClient  # adjust the import based on your project structure
+from s2s import JarvisClient  # adjust the import based on your project structure   
 
 # Load environment variables from .env
 load_dotenv()
