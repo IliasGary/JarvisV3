@@ -9,6 +9,7 @@ import datetime
 import subprocess
 import time
 import queue
+from websocket import WebSocketConnectionClosedException
 
 load_dotenv()  # load .env variables
 
@@ -284,3 +285,14 @@ class JarvisClient:
             self.ws_thread.join()
             self.ws = None
             self.ws_thread = None
+
+def send_text_message(self, message):
+    try:
+        self.ws.send(json.dumps(message))
+    except WebSocketConnectionClosedException:
+        print("WebSocket connection was closed. Reconnecting...")
+        self.reconnect()  # Add a reconnect method if needed
+
+
+
+        
